@@ -20,3 +20,12 @@ spec:
         image: docker.io/kostiscodefresh/gitops-simple-app:v1.0
         ports:
         - containerPort: 8080
+
+  ignoreDifferences:
+    - group: apps
+    kind: Deployment
+    jsonPointers:
+    - /metadata/annotations/creation   
+    - kind: Secret
+    jsonPointers:
+      - /data/my-password    
